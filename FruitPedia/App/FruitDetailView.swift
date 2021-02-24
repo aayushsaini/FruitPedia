@@ -12,6 +12,8 @@ struct FruitDetailView: View {
     var fruit: Fruit
     
     //MARK: BODY
+    
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -29,7 +31,7 @@ struct FruitDetailView: View {
                             .font(.headline)
                             .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                         //Nutrients
-                        
+                        FruitNutrientsView(fruit: fruit)
                         //Subhead
                         Text("Learn more about \(fruit.title)".uppercased())
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -59,5 +61,6 @@ struct FruitDetailView: View {
 struct FruitDetailView_Previews: PreviewProvider {
     static var previews: some View {
         FruitDetailView(fruit: fruitsData[0])
+            .preferredColorScheme(.dark)
     }
 }
